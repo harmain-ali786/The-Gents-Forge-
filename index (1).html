@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gents Forge - Premium Men's Fashion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            background-color: #f8f8f8;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1A1A1A;
+            color: #E5E5E5;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #C4A86F;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+        }
+
+        .logo-icon i {
+            color: #1A1A1A;
+            font-size: 16px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: #E5E5E5;
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #C4A86F;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-actions a {
+            color: #E5E5E5;
+            margin-left: 20px;
+            font-size: 18px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .header-actions a:hover {
+            color: #C4A86F;
+        }
+
+        .cart-count {
+            background-color: #C4A86F;
+            color: #1A1A1A;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background-image: url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 26, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: #E5E5E5;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #C4A86F;
+            color: #1A1A1A;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 3px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #E5E5E5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #C4A86F;
+            color: #E5E5E5;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: #C4A86F;
+            color: #1A1A1A;
+        }
+
+        /* Featured Categories */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #C4A86F;
+            margin: 15px auto 0;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-card:hover .category-img {
+            transform: scale(1.05);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26, 26, 26, 0.9), transparent);
+            padding: 20px;
+            color: #E5E5E5;
+        }
+
+        .category-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Featured Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #C4A86F;
+            color: #1A1A1A;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-weight: 700;
+            font-size: 18px;
+            color: #1A1A1A;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .add-to-cart {
+            flex-grow: 1;
+            background-color: #1A1A1A;
+            color: #E5E5E5;
+            padding: 8px 0;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+
+        .wishlist {
+            width: 40px;
+            height: 40px;
+            background-color: #f8f8f8;
+            border: none;
+            border-radius: 3px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wishlist:hover {
+            background-color: #eee;
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            background-color: #1A1A1A;
+            color: #E5E5E5;
+            padding: 80px 0;
+            margin: 60px 0;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s;
+        }
+
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background-color: #f1f1f1;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px 0 0 3px;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #C4A86F;
+        }
+
+        .newsletter-btn {
+            padding: 0 25px;
+            background-color: #1A1A1A;
+            color: #E5E5E5;
+            border: none;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #333;
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1A1A1A;
+            color: #E5E5E5;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #C4A86F;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+        }
+
+        .footer-logo-icon i {
+            color: #1A1A1A;
+            font-size: 16px;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: #E5E5E5;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #C4A86F;
+            color: #1A1A1A;
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #C4A86F;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #E5E5E5;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links ul li a:hover {
+            color: #C4A86F;
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .footer-contact p:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: #C4A86F;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+            color: #999;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #E5E5E5;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: #1A1A1A;
+                transition: left 0.3s;
+                z-index: 99;
+                padding: 30px;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                height: 70vh;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 3px;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-btn {
+                border-radius: 3px;
+                padding: 15px;
+            }
+
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+
+        /* Cart Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .cart-modal {
+            background-color: #fff;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .modal-overlay.active .cart-modal {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .cart-header {
+            background-color: #1A1A1A;
+            color: #E5E5E5;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: #E5E5E5;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .close-cart:hover {
+            transform: rotate(90deg);
+        }
+
+        .cart-body {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 1fr 100px 100px 50px;
+            gap: 20px;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s;
+        }
+
+        .cart-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        .cart-item-img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 3px;
+        }
+
+        .cart-item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            font-weight: 700;
+            color: #1A1A1A;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background-color: #f1f1f1;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background-color: #ddd;
+        }
+
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+            padding: 5px;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .remove-item:hover {
+            color: #ff0000;
+            transform: scale(1.2);
+        }
+
+        .cart-footer {
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-top: 1px solid #eee;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cart-actions .btn {
+            width: 48%;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .empty-cart i {
+            font-size: 50px;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .empty-cart p {
+            font-size: 18px;
+            color: #999;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1A1A1A;
+            color: #E5E5E5;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+        }
+
+        .notification.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .notification i {
+            margin-right: 10px;
+            color: #C4A86F;
+        }
+
+        /* Loading Animation */
+        .loader {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1002;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader.active {
+            display: flex;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #C4A86F;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hammer"></i>
+                </div>
+                THE GENTS FORGE
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" id="searchBtn"><i class="fas fa-search"></i></a>
+                <a href="#" id="wishlistBtn"><i class="far fa-heart"></i></a>
+                <a href="#" id="cartBtn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Crafting Timeless Style for the Modern Gentleman</h1>
+                <p>Discover our premium collection of tailored suits, rugged leather jackets, and refined accessories designed to elevate your wardrobe.</p>
+                <div class="btn-group">
+                    <a href="#" class="btn">Shop Now</a>
+                    <a href="#" class="btn btn-outline">Explore Collections</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="container">
+        <h2 class="section-title">Our Collections</h2>
+        <div class="categories">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Suits & Blazers" class="category-img">
+                <div class="category-overlay">
+                    <h3>Suits & Blazers</h3>
+                    <a href="#" class="btn btn-outline">View Collection</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Leather Jackets" class="category-img">
+                <div class="category-overlay">
+                    <h3>Leather Jackets</h3>
+                    <a href="#" class="btn btn-outline">View Collection</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Denim & Casual" class="category-img">
+                <div class="category-overlay">
+                    <h3>Denim & Casual</h3>
+                    <a href="#" class="btn btn-outline">View Collection</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products">
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tailored Wool Suit" class="product-img">
+                    <span class="product-badge">Bestseller</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Tailored Wool Suit</h3>
+                    <div class="product-price">
+                        <span class="current-price">PKR 49,999</span>
+                        <span class="original-price">PKR 59,999</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Classic Leather Jacket" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Classic Leather Jacket</h3>
+                    <div class="product-price">
+                        <span class="current-price">PKR 39,999</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Premium Denim Jeans" class="product-img">
+                    <span class="product-badge">New</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Premium Denim Jeans</h3>
+                    <div class="product-price">
+                        <span class="current-price">PKR 12,999</span>
+                        <span class="original-price">PKR 14,999</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Silk Pocket Square" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Silk Pocket Square</h3>
+                    <div class="product-price">
+                        <span class="current-price">PKR 4,999</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container about-container">
+            <div>
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="About The Gents Forge" class="about-img">
+            </div>
+            <div class="about-content">
+                <h2>Forging Excellence Since 1985</h2>
+                <p>The Gents Forge was born from a passion for craftsmanship and timeless style. Our founder, James Harrington, set out to create clothing that would stand the test of time - both in quality and design.</p>
+                <p>Each piece in our collection is meticulously crafted using the finest materials and traditional techniques, updated for the modern gentleman. We believe in slow fashion - creating fewer, better pieces that become wardrobe staples.</p>
+                <a href="#" class="btn">Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Join Our Brotherhood</h2>
+            <p>Subscribe to receive exclusive offers, styling tips, and early access to new collections.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                <button type="submit" class="btn newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        THE GENTS FORGE
+                    </div>
+                    <p>Crafting premium men's fashion with uncompromising quality and timeless design since 1985.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">Suits & Blazers</a></li>
+                        <li><a href="#">Leather Jackets</a></li>
+                        <li><a href="#">Denim & Casual</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Craft</a></li>
+                        <li><a href="#">Journal</a></li>
+                        <li><a href="#">Stores</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Forge Street, Karachi, Pakistan</p>
+                    <p><i class="fas fa-phone"></i> +92 21 12345678</p>
+                    <p><i class="fas fa-envelope"></i> hello@thegentsforge.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 The Gents Forge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal-overlay" id="cartModal">
+        <div class="cart-modal">
+            <div class="cart-header">
+                <h2>Your Cart (<span id="cartItemCount">0</span>)</h2>
+                <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <p>Your cart is empty</p>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">PKR 0.00</span>
+                </div>
+                <div class="cart-actions">
+                    <a href="#" class="btn btn-outline">Continue Shopping</a>
+                    <a href="#" class="btn">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText">Item added to cart</span>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            mainNav.classList.toggle('active');
+        });
+
+        // Cart Functionality
+        const cartBtn = document.getElementById('cartBtn');
+        const cartModal = document.getElementById('cartModal');
+        const closeCart = document.getElementById('closeCart');
+        const cartBody = document.getElementById('cartBody');
+        const cartItemCount = document.getElementById('cartItemCount');
+        const cartTotal = document.getElementById('cartTotal');
+        const addToCartBtns = document.querySelectorAll('.add-to-cart');
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notificationText');
+        const loader = document.getElementById('loader');
+
+        let cart = [];
+        let total = 0;
+
+        // Sample product data with PKR prices
+        const products = [
+            {
+                id: 1,
+                title: "Tailored Wool Suit",
+                price: 49999,
+                image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                originalPrice: 59999
+            },
+            {
+                id: 2,
+                title: "Classic Leather Jacket",
+                price: 39999,
+                image: "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 3,
+                title: "Premium Denim Jeans",
+                price: 12999,
+                image: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                originalPrice: 14999
+            },
+            {
+                id: 4,
+                title: "Silk Pocket Square",
+                price: 4999,
+                image: "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            }
+        ];
+
+        // Format PKR currency
+        function formatPKR(amount) {
+            return 'PKR ' + amount.toLocaleString('en-PK');
+        }
+
+        // Toggle cart modal
+        cartBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartModal.classList.add('active');
+            updateCartDisplay();
+        });
+
+        closeCart.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartModal.classList.remove('active');
+        });
+
+        // Add to cart functionality
+        addToCartBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                const product = products[index];
+                addToCart(product);
+                
+                // Show notification
+                notificationText.textContent = `${product.title} added to cart`;
+                notification.classList.add('active');
+                
+                // Hide notification after 3 seconds
+                setTimeout(() => {
+                    notification.classList.remove('active');
+                }, 3000);
+            });
+        });
+
+        function addToCart(product) {
+            // Show loader
+            loader.classList.add('active');
+            
+            // Simulate loading delay
+            setTimeout(() => {
+                // Check if product already in cart
+                const existingItem = cart.find(item => item.id === product.id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        ...product,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                
+                // Hide loader
+                loader.classList.remove('active');
+            }, 500);
+        }
+
+        function updateCart() {
+            // Update cart count
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = count;
+            cartItemCount.textContent = count;
+            
+            // Calculate total
+            total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.textContent = formatPKR(total);
+        }
+
+        function updateCartDisplay() {
+            if (cart.length === 0) {
+                cartBody.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <p>Your cart is empty</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let cartHTML = '';
+            
+            cart.forEach(item => {
+                cartHTML += `
+                    <div class="cart-item" data-id="${item.id}">
+                        <img src="${item.image}" alt="${item.title}" class="cart-item-img">
+                        <div>
+                            <h4 class="cart-item-title">${item.title}</h4>
+                            <div class="cart-item-price">${formatPKR(item.price)}</div>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" value="${item.quantity}" min="1" class="quantity-input">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="cart-item-subtotal">${formatPKR(item.price * item.quantity)}</div>
+                        <button class="remove-item"><i class="fas fa-times"></i></button>
+                    </div>
+                `;
+            });
+            
+            cartBody.innerHTML = cartHTML;
+            
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const itemElement = e.target.closest('.cart-item');
+                    const id = parseInt(itemElement.dataset.id);
+                    const item = cart.find(item => item.id === id);
+                    
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                        updateCart();
+                        updateCartDisplay();
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const itemElement = e.target.closest('.cart-item');
+                    const id = parseInt(itemElement.dataset.id);
+                    const item = cart.find(item => item.id === id);
+                    
+                    item.quantity += 1;
+                    updateCart();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    const itemElement = e.target.closest('.cart-item');
+                    const id = parseInt(itemElement.dataset.id);
+                    const item = cart.find(item => item.id === id);
+                    const newQuantity = parseInt(e.target.value);
+                    
+                    if (newQuantity > 0) {
+                        item.quantity = newQuantity;
+                        updateCart();
+                        updateCartDisplay();
+                    } else {
+                        e.target.value = item.quantity;
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const itemElement = e.target.closest('.cart-item');
+                    const id = parseInt(itemElement.dataset.id);
+                    
+                    cart = cart.filter(item => item.id !== id);
+                    updateCart();
+                    updateCartDisplay();
+                    
+                    // Show notification
+                    notificationText.textContent = `Item removed from cart`;
+                    notification.classList.add('active');
+                    
+                    // Hide notification after 3 seconds
+                    setTimeout(() => {
+                        notification.classList.remove('active');
+                    }, 3000);
+                });
+            });
+        }
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+            
+            // Show loader
+            loader.classList.add('active');
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Hide loader
+                loader.classList.remove('active');
+                
+                // Show notification
+                notificationText.textContent = `Thank you for subscribing with ${email}!`;
+                notification.classList.add('active');
+                
+                // Hide notification after 3 seconds
+                setTimeout(() => {
+                    notification.classList.remove('active');
+                }, 3000);
+                
+                e.target.reset();
+            }, 1500);
+        });
+
+        // Wishlist functionality
+        const wishlistBtns = document.querySelectorAll('.wishlist');
+        wishlistBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isActive = btn.innerHTML.includes('far');
+                btn.innerHTML = isActive ? 
+                    '<i class="fas fa-heart" style="color: #ff0000;"></i>' : 
+                    '<i class="far fa-heart"></i>';
+                
+                // Show notification
+                notificationText.textContent = isActive ? 
+                    'Item added to wishlist' : 'Item removed from wishlist';
+                notification.classList.add('active');
+                
+                // Hide notification after 3 seconds
+                setTimeout(() => {
+                    notification.classList.remove('active');
+                }, 3000);
+            });
+        });
+
+        // Close cart when clicking outside
+        cartModal.addEventListener('click', (e) => {
+            if (e.target === cartModal) {
+                cartModal.classList.remove('active');
+            }
+        });
+
+        // Close notification when clicked
+        notification.addEventListener('click', () => {
+            notification.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
